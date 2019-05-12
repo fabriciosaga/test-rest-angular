@@ -2,11 +2,15 @@
   users works!
 </p>
 
+<div *ngIf="user!=null">
+  <p> {{user.id}} : {{user.name}} || <input [(ngModel)]="user.name"></p>
+  <p><button (click)="updateItem()">Actualizar Usuario</button></p>
+</div>
 <div>
   <ul>
       <li *ngFor="let item of users">
-          Usuario: {{item.id}} - <button (click)="showDetail(item.id)">Show info</button>
-          <h1 *ngIf="user!=null && item.id==user.id"> {{user.name}}</h1>
+          Usuario: {{item.id}} - <button (click)="showDetail(item.id)">Show info</button> 
+          <p *ngIf="user!=null && item.id==user.id"> {{user.name}}</p>
       </li>
   </ul>
 

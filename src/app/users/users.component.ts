@@ -12,7 +12,7 @@ export class UsersComponent implements OnInit {
 
   users:UserItem[];
   user:UserItem;
-  
+
   constructor(private userService:UserServiceService) { }
 
   ngOnInit() {
@@ -27,5 +27,9 @@ export class UsersComponent implements OnInit {
         data => this.user=data,
         error => console.log(error)
       );
+  }
+
+  updateItem() {    
+    this.userService.updateUser(this.user).subscribe();
   }
 }

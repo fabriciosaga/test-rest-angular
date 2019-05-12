@@ -18,4 +18,8 @@ export class UserServiceService {
   getUser(id:number) {
     return this.httpClient.get<UserItem>("http://localhost:8030/user/" + id);
   }
+
+  updateUser(user:UserItem) {
+    return this.httpClient.put<UserItem>("http://localhost:8030/updateUser", user);
+  }
 }
